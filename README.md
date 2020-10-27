@@ -29,11 +29,28 @@ Once you create a new repo, you can:
 - Update authentication config in [index.ts](./src/index.ts)
 - Update environment variable defined in [github action workflow files](./.github/workflows) to your config to get [Github Action](https://docs.github.com/en/free-pro-team@latest/actions) CI running.
 
+> Magda provides NPM packages [@magda/authentication-plugin-sdk](https://www.npmjs.com/package/@magda/authentication-plugin-sdk) and [@magda/auth-api-client](https://www.npmjs.com/package/@magda/auth-api-client) that you may need to implement your authentication logic.
+
 To release a docker hub image & helm chart, just [create a release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release) in your Github repo. This will trigger the CI job to:
 - Run test cases (if any)
 - Build the docker image
 - Publish docker image to Docker Hub
 - Publish the helm chart to your S3 bucket
+
+## Config Magda to Use the Auth Plugin
+
+[This commit](https://github.com/magda-io/magda/pull/3018/commits/ddba7183d6195d4cd99c8c0b0cf0b08a78552b1e) shows how to config Magda to use your auth plugin via Helm values file config.
+
+You can also check [Magda Gateway helm chart document](https://github.com/magda-io/magda/blob/e8e60fc2f8e655d82486eec48d0225a9b1b9d895/deploy/helm/internal-charts/gateway/README.md) for more details.
+
+## How to Customise Authentication Process
+
+Here is [an example](https://github.com/magda-io/magda-auth-google/commit/f8d6ce53c64b8f1de9a64daf1a6ee2358177d39e) (based on [magda-auth-google](https://github.com/magda-io/magda-auth-google)) to show:
+How you can :
+- Decide & Set user's organisation unit by matching user's profile
+- Decide & set user's role by matching user's profile
+- Customised session data
+- More non-authentication related HTTP endpoints
 
 ## Source Code
 
