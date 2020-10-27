@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import yargs from "yargs";
-import google from "./google";
+import createAuthPluginRouter from "./createAuthPluginRouter";
 import AuthApiClient, { UserToken } from "@magda/auth-api-client";
 import {
     createMagdaSessionRouter,
@@ -67,21 +67,6 @@ const argv = yargs
         type: "string",
         coerce: coerceJson
     })
-    .option("googleClientId", {
-        describe: "The client ID to use for Google OAuth.",
-        type: "string",
-        default:
-            process.env.GOOGLE_CLIENT_ID ||
-            process.env.npm_package_config_googleClientId
-    })
-    .option("googleClientSecret", {
-        describe:
-            "The secret to use for Google OAuth.  This can also be specified with the GOOGLE_CLIENT_SECRET environment variable.",
-        type: "string",
-        default:
-            process.env.GOOGLE_CLIENT_SECRET ||
-            process.env.npm_package_config_googleClientSecret
-    })
     .option("userId", {
         describe:
             "The user id to use when making authenticated requests to the registry",
@@ -101,7 +86,7 @@ app.get("/healthz", (req, res) => res.send("OK"));
  * a 36x36 size icon to be shown on frontend login page
  */
 app.get("/icon.svg", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "../assets/google-logo.svg"))
+    res.sendFile(path.resolve(__dirname, "../assets/generic-logo.svg"))
 );
 
 /**
@@ -110,8 +95,8 @@ app.get("/icon.svg", (req, res) =>
  */
 app.get("/config", (req, res) =>
     res.json({
-        key: "google",
-        name: "Google",
+        key: "test-auth-plugin",
+        name: "Test Auth Plugin",
         iconUrl: "/icon.svg",
         authenticationMethod: "IDP-URI-REDIRECTION"
     } as AuthPluginConfig)
@@ -155,11 +140,12 @@ const authApiClient = new AuthApiClient(
 );
 
 app.use(
-    google({
+    createAuthPluginRouter({
         passport: passport,
         authorizationApi: authApiClient,
-        clientId: argv.googleClientId,
-        clientSecret: argv.googleClientSecret,
+        // you might want to update the helm chart to pass clientId & clientSecret provided by your idp (identity provied)
+        clientId: "My clientId",
+        clientSecret: "My clientSecret",
         externalUrl: argv.externalUrl,
         authPluginRedirectUrl: argv.authPluginRedirectUrl
     })

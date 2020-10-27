@@ -1,9 +1,9 @@
 {
-  "name": "magda-auth-google",
+  "name": "magda-auth-template",
   "version": "1.0.0",
-  "description": "A Magda Authentication Plugin for Google",
-  "repository": "https://github.com/magda-io/magda-auth-google.git",
-  "author": "Jacky Jiang <jacky.jiang@data61.csiro.au>",
+  "description": "A Magda Authentication Plugin Template. You can use this as a base to build your own Authentication Plugin",
+  "repository": "https://github.com/magda-io/magda-auth-template.git",
+  "author": "",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
@@ -35,13 +35,12 @@
     "express": "^4.15.4",
     "lodash": "^4.17.20",
     "passport": "0.2.2",
-    "passport-google-oauth20": "^2.0.0",
     "urijs": "^1.19.2",
     "yargs": "^16.1.0"
   },
   "config": {
     "docker": {
-      "name": "data61/magda-auth-google",
+      "name": "data61/magda-auth-template",
       "include": "node_modules dist Dockerfile package.json assets"
     },
     "jwtSecret": "squirrel",

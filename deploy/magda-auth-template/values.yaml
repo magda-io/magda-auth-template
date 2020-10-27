@@ -1,8 +1,3 @@
-# -- Google Client Id. You **must** provide this value to make this plugin work
-# Besides, this id. You also need to provide `googleClientSecret` via secret `oauth-secrets` (key: google-client-secret).
-# You can use [Magda Create Secret Tool](https://www.npmjs.com/package/@magda/create-secrets) to create this secret.
-googleClientId:
-
 # -- only for providing appropriate default value for helm lint
 global:
   image: {}
@@ -35,9 +30,9 @@ autoscaler:
   maxReplicas: 3
   targetCPUUtilizationPercentage: 80
 
-image: 
-  # -- default docker image name
-  name: "magda-auth-google"
+image: {}
+  # -- default docker image name 
+  # name: 
   # repository: 
   # tag: 
   # pullPolicy: 

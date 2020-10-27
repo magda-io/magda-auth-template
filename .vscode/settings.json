@@ -4,6 +4,5 @@
         "**/node_modules": true,
         "**/bin": true
     },
-    "eslint.enable": true,
     "files.associations": { "*.json": "jsonc" }
 }

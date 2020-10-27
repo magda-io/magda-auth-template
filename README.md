@@ -1,14 +1,42 @@
-# magda-auth-google
+# magda-auth-template
 
 ![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square)
 
-A Magda Authentication Plugin for Google
+A Magda Authentication Plugin Template. You can use this as a base to build your own Magda Authentication Plugin.
 
-**Homepage:** <https://github.com/magda-io/magda-auth-google>
+**Homepage:** <https://github.com/magda-io/magda-auth-template>
+
+## About this document
+
+This document is auto-generated from helm chart [values file](deploy/magda-auth-template/values.yaml) comments and template [README.md.gotmpl](./README.md.gotmpl) using [helm-docs](https://github.com/norwoodj/helm-docs).
+
+Once you installed `helm-docs`, you can re-generate the docs by running:
+
+```
+yarn helm-docs
+```
+
+## How to use this template repo
+
+To generate a new repo from this template repo, please see [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
+
+If you are new to this, please have a read [Authentication Plugin Specification](https://github.com/magda-io/magda/blob/master/docs/docs/authentication-plugin-spec.md).
+
+Once you create a new repo, you can:
+- Replace `magda-auth-template` keywords with your auth plugin name
+- Add your authentication logic to [createAuthPluginRouter.ts](./src/createAuthPluginRouter.ts)
+- Update authentication config in [index.ts](./src/index.ts)
+- Update environment variable defined in [github action workflow files](./.github/workflows) to your config to get [Github Action](https://docs.github.com/en/free-pro-team@latest/actions) CI running.
+
+To release a docker hub image & helm chart, just [create a release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release) in your Github repo. This will trigger the CI job to:
+- Run test cases (if any)
+- Build the docker image
+- Publish docker image to Docker Hub
+- Publish the helm chart to your S3 bucket
 
 ## Source Code
 
-* <https://github.com/magda-io/magda-auth-google>
+* <https://github.com/magda-io/magda-auth-template>
 
 ## Requirements
 
@@ -27,9 +55,8 @@ Kubernetes: `>= 1.14.0-0`
 | defaultImage.imagePullSecret | bool | `false` |  |
 | defaultImage.pullPolicy | string | `"IfNotPresent"` |  |
 | defaultImage.repository | string | `"docker.io/data61"` |  |
-| global | object | `{"authPluginRedirectUrl":"/sign-in-redirect","image":{},"rollingUpdate":{}}` | only for providing appropriate default value for helm lint |
-| googleClientId | string | `nil` | Google Client Id. You **must** provide this value to make this plugin work Besides, this id. You also need to provide `googleClientSecret` via secret `oauth-secrets` (key: google-client-secret). You can use [Magda Create Secret Tool](https://www.npmjs.com/package/@magda/create-secrets) to create this secret. |
-| image.name | string | `"magda-auth-google"` | default docker image name |
+| global | object | `{"authPluginRedirectUrl":"/sign-in-redirect","externalUrl":"","image":{},"rollingUpdate":{}}` | only for providing appropriate default value for helm lint |
+| image | object | `{}` |  |
 | replicas | int | `1` | no. of initial replicas |
 | resources.limits.cpu | string | `"50m"` |  |
 | resources.requests.cpu | string | `"10m"` |  |
