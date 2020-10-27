@@ -25,6 +25,7 @@ If you are new to this, please have a read [Authentication Plugin Specification]
 Once you create a new repo, you can:
 - Replace `magda-auth-template` keywords with your auth plugin name
 - Add your authentication logic to [createAuthPluginRouter.ts](./src/createAuthPluginRouter.ts)
+  - You can find passport.js `strategies` that support different IDPs (identity providers) or authentication servers from [here](http://www.passportjs.org/packages/).
 - Update authentication config in [index.ts](./src/index.ts)
 - Update environment variable defined in [github action workflow files](./.github/workflows) to your config to get [Github Action](https://docs.github.com/en/free-pro-team@latest/actions) CI running.
 
