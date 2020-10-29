@@ -19,10 +19,10 @@
   resolved "https://registry.yarnpkg.com/@magda/auth-api-client/-/auth-api-client-0.0.58-alpha.4.tgz#f27d8764c17bf73d6f637acf5a12c54ada956fff"
   integrity sha512-2DcqrntnoZZVzF1uKgS2bQ5IJQWTkue8/yo1y0e6LR6hmMWcZv6r18vWD5ca2H8ud2bHE55syKMKpogSuuZ8Ew==
 
-"@magda/authentication-plugin-sdk@^0.0.58-alpha.1":
-  version "0.0.58-alpha.1"
-  resolved "https://registry.yarnpkg.com/@magda/authentication-plugin-sdk/-/authentication-plugin-sdk-0.0.58-alpha.1.tgz#f5fb0ffa6a8636e81bda53291664f5509e0de830"
-  integrity sha512-jmKBDuBjyLge6aQ0lFqKenAVLfO3+55kcNw8ZoNoljRYY0XrRDxkush/hMHP9ZtOqOC3fLdbRQgtRYVOyOyZLA==
+"@magda/authentication-plugin-sdk@^0.0.58-alpha.2":
+  version "0.0.58-alpha.2"
+  resolved "https://registry.yarnpkg.com/@magda/authentication-plugin-sdk/-/authentication-plugin-sdk-0.0.58-alpha.2.tgz#43f752b958f55bccf5ac49b70d9e0bd04bcbdb22"
+  integrity sha512-T/DMdVjLYTjKVLCxfJ+AzDYc/jTOtSc9OgyA3qwb5KcM97AbX7wOJ7q4jsX7ook3EX+iDGD58SK8hV9PtoESRQ==
   dependencies:
     connect-pg-simple "^6.0.1"
     cookie-parser "^1.4.5"
