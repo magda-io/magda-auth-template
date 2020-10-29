@@ -24,6 +24,13 @@ const argv = yargs
         type: "string",
         default: "/sign-in-redirect"
     })
+    .option("authPluginConfigJson", {
+        describe:
+            "Auth Plugin Config" +
+            "See https://github.com/magda-io/magda/blob/master/docs/docs/authentication-plugin-spec.md.",
+        type: "string",
+        coerce: coerceJson
+    })
     .option("externalUrl", {
         describe: "The base external URL of the gateway.",
         type: "string",
@@ -94,12 +101,7 @@ app.get("/icon.svg", (req, res) =>
  * See [authentication-plugin-spec.md](https://github.com/magda-io/magda/blob/master/docs/docs/authentication-plugin-spec.md)
  */
 app.get("/config", (req, res) =>
-    res.json({
-        key: "test-auth-plugin",
-        name: "Test Auth Plugin",
-        iconUrl: "/icon.svg",
-        authenticationMethod: "IDP-URI-REDIRECTION"
-    } as AuthPluginConfig)
+    res.json((argv.authPluginConfigJson as any) as AuthPluginConfig)
 );
 
 /**
