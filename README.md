@@ -4,6 +4,10 @@
 
 A Magda Authentication Plugin Template. You can use this as a base to build your own Magda Authentication Plugin.
 
+Requires MAGDA version 0.0.58 or above.
+
+To deploy the authentication plugin with your MAGDA instance, please check [MAGDA Gateway Helm Chart Document](https://github.com/magda-io/magda/blob/master/deploy/helm/internal-charts/gateway/README.md).
+
 **Homepage:** <https://github.com/magda-io/magda-auth-template>
 
 ## About this document
