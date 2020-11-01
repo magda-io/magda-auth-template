@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { Authenticator } from "passport";
 import { default as ApiClient } from "@magda/auth-api-client";
+import { AuthPluginConfig } from "@magda/authentication-plugin-sdk";
 
 export interface AuthPluginRouterOptions {
     authorizationApi: ApiClient;
@@ -9,6 +10,7 @@ export interface AuthPluginRouterOptions {
     clientSecret: string; // clientSecret that might be required by your IDP provider
     externalUrl: string;
     authPluginRedirectUrl: string;
+    authPluginConfig: AuthPluginConfig;
 }
 
 export default function createAuthPluginRouter(

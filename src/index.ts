@@ -81,6 +81,8 @@ const argv = yargs
         default: process.env.USER_ID || process.env.npm_package_config_userId
     }).argv;
 
+const authPluginConfig = (argv.authPluginConfigJson as any) as AuthPluginConfig;
+
 // Create a new Express application.
 const app = express();
 
@@ -100,9 +102,7 @@ app.get("/icon.svg", (req, res) =>
  * response plugin config so other module knows how to interact with this plugin
  * See [authentication-plugin-spec.md](https://github.com/magda-io/magda/blob/master/docs/docs/authentication-plugin-spec.md)
  */
-app.get("/config", (req, res) =>
-    res.json((argv.authPluginConfigJson as any) as AuthPluginConfig)
-);
+app.get("/config", (req, res) => res.json(authPluginConfig));
 
 /**
  * Connect to magda session db & enable express session
@@ -149,7 +149,8 @@ app.use(
         clientId: "My clientId",
         clientSecret: "My clientSecret",
         externalUrl: argv.externalUrl,
-        authPluginRedirectUrl: argv.authPluginRedirectUrl
+        authPluginRedirectUrl: argv.authPluginRedirectUrl,
+        authPluginConfig
     })
 );
 
