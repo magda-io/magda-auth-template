@@ -6,9 +6,32 @@ A Magda Authentication Plugin Template. You can use this as a base to build your
 
 Requires MAGDA version 0.0.58 or above.
 
-To deploy the authentication plugin with your MAGDA instance, please check [MAGDA Gateway Helm Chart Document](https://github.com/magda-io/magda/blob/master/deploy/helm/internal-charts/gateway/README.md).
+### How to Use
 
-**Homepage:** <https://github.com/magda-io/magda-auth-template>
+1. Add the auth plugin as a [Helm Chart Dependency](https://helm.sh/docs/helm/helm_dependency/)
+```yaml
+- name: magda-auth-xxxxx
+  version: x.x.x
+  repository: https://charts.magda.io
+  tags:
+    - all
+    - magda-auth-xxxxx
+```
+
+2. Config the auth plugin with required parameters
+```yaml
+magda-auth-xxxxx:
+  param1: value1
+  param2: value2
+```
+
+3. Config Gatway to add the auth plugin to Gateway's plugin list (More details see [here](https://github.com/magda-io/magda/blob/master/deploy/helm/internal-charts/gateway/README.md))
+```yaml
+gateway:
+  authPlugins:
+  - key: xxxxx
+    baseUrl: http://magda-auth-xxxxx
+```
 
 ## About this document
 
@@ -41,12 +64,6 @@ To release a docker hub image & helm chart, just [create a release](https://docs
 - Publish docker image to Docker Hub
 - Publish the helm chart to your S3 bucket
 
-## Config Magda to Use the Auth Plugin
-
-[This commit](https://github.com/magda-io/magda/pull/3018/commits/ddba7183d6195d4cd99c8c0b0cf0b08a78552b1e) shows how to config Magda to use your auth plugin via Helm values file config.
-
-You can also check [Magda Gateway helm chart document](https://github.com/magda-io/magda/blob/e8e60fc2f8e655d82486eec48d0225a9b1b9d895/deploy/helm/internal-charts/gateway/README.md) for more details.
-
 ## How to Customise Authentication Process
 
 Here is [an example](https://github.com/magda-io/magda-auth-google/commit/f8d6ce53c64b8f1de9a64daf1a6ee2358177d39e) (based on [magda-auth-google](https://github.com/magda-io/magda-auth-google)) to show:
@@ -55,10 +72,6 @@ How you can :
 - Decide & set user's role by matching user's profile
 - Customised session data
 - More non-authentication related HTTP endpoints
-
-## Source Code
-
-* <https://github.com/magda-io/magda-auth-template>
 
 ## Requirements
 
