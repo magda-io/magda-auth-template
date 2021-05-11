@@ -2,15 +2,15 @@
 # yarn lockfile v1
 
 
-"@magda/auth-api-client@^0.0.58-alpha.4":
-  version "0.0.58-alpha.4"
-  resolved "https://registry.yarnpkg.com/@magda/auth-api-client/-/auth-api-client-0.0.58-alpha.4.tgz#f27d8764c17bf73d6f637acf5a12c54ada956fff"
-  integrity sha512-2DcqrntnoZZVzF1uKgS2bQ5IJQWTkue8/yo1y0e6LR6hmMWcZv6r18vWD5ca2H8ud2bHE55syKMKpogSuuZ8Ew==
+"@magda/auth-api-client@^0.0.60-alpha.7":
+  version "0.0.60-alpha.8"
+  resolved "https://registry.yarnpkg.com/@magda/auth-api-client/-/auth-api-client-0.0.60-alpha.8.tgz#cba9c0d041d5880e4a9a02654cf1306ae2ea5e88"
+  integrity sha512-EYgggIri5/O1jE28lAcbmM55vBDav6Pfe8Gzm4lEOyPKrMNw630H+Y1SbWZzcolwf9Wk2tlmlgzKPgm1/lyaDA==
 
-"@magda/authentication-plugin-sdk@^0.0.58-alpha.2":
-  version "0.0.58-alpha.2"
-  resolved "https://registry.yarnpkg.com/@magda/authentication-plugin-sdk/-/authentication-plugin-sdk-0.0.58-alpha.2.tgz#43f752b958f55bccf5ac49b70d9e0bd04bcbdb22"
-  integrity sha512-T/DMdVjLYTjKVLCxfJ+AzDYc/jTOtSc9OgyA3qwb5KcM97AbX7wOJ7q4jsX7ook3EX+iDGD58SK8hV9PtoESRQ==
+"@magda/authentication-plugin-sdk@^0.0.60-alpha.7":
+  version "0.0.60-alpha.8"
+  resolved "https://registry.yarnpkg.com/@magda/authentication-plugin-sdk/-/authentication-plugin-sdk-0.0.60-alpha.8.tgz#44225d090ccf175820b73204439555054c58976a"
+  integrity sha512-eg/Eb3hR0xs5cvlrcmvX9QhFVx7fA7ENIJvA8XGk0FJ1Z+6GUp/R1c2LUh/p/cwJg4J5fwULT4kyw4XHKFKqLA==
   dependencies:
     connect-pg-simple "^6.0.1"
     cookie-parser "^1.4.5"
@@ -18,12 +18,12 @@
     express-session "^1.17.1"
     lodash "^4.17.4"
     pg "^6.4.0"
-    urijs "^1.18.12"
+    urijs "^1.19.4"
 
-"@magda/docker-utils@^0.0.58-alpha.2":
-  version "0.0.58-alpha.2"
-  resolved "https://registry.yarnpkg.com/@magda/docker-utils/-/docker-utils-0.0.58-alpha.2.tgz#851ee937256405969cd478d90cdd8a38fcb6a3da"
-  integrity sha512-U30/h8qYZZ5Q1RgEPx2pyeystYnnqYx+8lcsEwpJEwgTiG4FBl2u3iTyEKYUJlWIno778X/7HiPf3ltLtxnntw==
+"@magda/docker-utils@^0.0.60-alpha.7":
+  version "0.0.60-alpha.8"
+  resolved "https://registry.yarnpkg.com/@magda/docker-utils/-/docker-utils-0.0.60-alpha.8.tgz#8043dab87ad2f08f43750c4b2b56dc89b6777c6e"
+  integrity sha512-Fqnf/su44dG61y/6DVXyKX3dlanGnvYXEyHixE6Nc6onFgapEvGQAgvGM+oRgUjtzfXNroAKive9PzUgfpcqtg==
   dependencies:
     fs-extra "^2.1.2"
     is-subdir "^1.0.2"
@@ -1665,10 +1665,15 @@ unpipe@1.0.0, unpipe@~1.0.0:
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
-urijs@^1.18.12, urijs@^1.19.2:
+urijs@^1.19.2:
   version "1.19.2"
   resolved "https://registry.yarnpkg.com/urijs/-/urijs-1.19.2.tgz#f9be09f00c4c5134b7cb3cf475c1dd394526265a"
   integrity sha512-s/UIq9ap4JPZ7H1EB5ULo/aOUbWqfDi7FKzMC2Nz+0Si8GiT1rIEaprt8hy3Vy2Ex2aJPpOQv4P4DuOZ+K1c6w==
+
+urijs@^1.19.4:
+  version "1.19.6"
+  resolved "https://registry.yarnpkg.com/urijs/-/urijs-1.19.6.tgz#51f8cb17ca16faefb20b9a31ac60f84aa2b7c870"
+  integrity sha512-eSXsXZ2jLvGWeLYlQA3Gh36BcjF+0amo92+wHPyN1mdR8Nxf75fuEuYTd9c0a+m/vhCjRK0ESlE9YNLW+E1VEw==
 
 util-deprecate@^1.0.1:
   version "1.0.2"
