@@ -3,7 +3,9 @@ kind: Deployment
 metadata:
   name: {{ .Chart.Name }}
 spec:
+{{- if not .Values.autoscaler.enabled }}
   replicas: {{ .Values.replicas | default 1 }}
+{{- end }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -13,6 +15,8 @@ spec:
       service: {{ .Chart.Name }}
   template:
     metadata:
+      annotations:
+        checksum/authPluginConfig: {{ .Values.authPluginConfig | mustToRawJson | sha256sum }}
       labels:
         service: {{ .Chart.Name }}
     spec:

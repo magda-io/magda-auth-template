@@ -15,11 +15,12 @@
     "test": "mocha --require ts-node/register \"src/test/**/*.spec.ts\"",
     "docker-build-local": "create-docker-context-for-node-component --build --push --tag auto --local",
     "docker-build-prod": "create-docker-context-for-node-component --build --push --tag auto",
-    "helm-lint": "helm lint deploy/magda-auth-template -f deploy/test-deploy.yaml",
+    "helm-lint": "helm template deploy/magda-auth-template -f deploy/test-deploy.yaml 1>/dev/null",
     "helm-docs": "helm-docs -t ./README.md.gotmpl -o ../../README.md",
     "retag-and-push": "retag-and-push"
   },
   "devDependencies": {
+    "@magda/ci-utils": "^1.0.2",
     "@magda/docker-utils": "^0.0.60-alpha.7",
     "@types/express": "^4.0.37",
     "@types/lodash": "^4.14.162",
