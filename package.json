@@ -37,7 +37,7 @@
     "@magda/auth-api-client": "^0.0.60-alpha.7",
     "@magda/authentication-plugin-sdk": "^0.0.60-alpha.7",
     "express": "^4.15.4",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "passport": "0.2.2",
     "urijs": "^1.19.2",
     "yargs": "^16.1.0"
