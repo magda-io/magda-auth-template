@@ -14,9 +14,6 @@ Requires MAGDA version 0.0.58 or above.
   alias: magda-auth-my-idp
   version: x.x.x
   repository: https://charts.magda.io
-  tags:
-    - all
-    - magda-auth-my-idp
 ```
 
 > Please note: `alias` field is optional. Its purpose is to give the helm chart an alias name (rather than the default `magda-auth-xxx` chart name) so it's possible to use `magda-auth-xxx` plugins multiple times (for different idps) in your deployment.
