@@ -23,7 +23,9 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test
-      - run: helm dep up deploy/${REPO_NAME}
+
+      - run: yarn update-all-charts
+
       - run: yarn helm-lint
 
       - name: Login to GitHub Package Repository
