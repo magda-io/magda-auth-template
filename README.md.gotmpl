@@ -12,27 +12,38 @@ Requires MAGDA version 0.0.58 or above.
 
 1. Add the auth plugin as a [Helm Chart Dependency](https://helm.sh/docs/helm/helm_dependency/)
 ```yaml
-- name: magda-auth-xxxxx
+- name: magda-auth-xxx
+  alias: magda-auth-my-idp
   version: x.x.x
   repository: https://charts.magda.io
-  tags:
-    - all
-    - magda-auth-xxxxx
 ```
+
+> Please note: `alias` field is optional. Its purpose is to give the helm chart an alias name (rather than the default `magda-auth-xxx` chart name) so it's possible to use `magda-auth-xxx` plugins multiple times (for different idps) in your deployment.
+> When `alias` is not specified, you should reference its name as `magda-auth-xxx`.
 
 2. Config the auth plugin with required parameters
 ```yaml
-magda-auth-xxxxx:
+magda-auth-my-idp:
   param1: value1
   param2: value2
+  # setting authPluginConfig is optional; only when you've specified alias name and want to support multiple oidc idps at the same time 
+  authPluginConfig:
+    key: "my-idp"
+    name: "Login to My IDP"
 ```
+
+> When `alias` is not specified when define [Helm Chart Dependency](https://helm.sh/docs/helm/helm_dependency/), you should reference its name as `magda-auth-xxx` in your config.
 
 3. Config Gatway to add the auth plugin to Gateway's plugin list (More details see [here](https://github.com/magda-io/magda/blob/master/deploy/helm/internal-charts/gateway/README.md))
 ```yaml
 gateway:
   authPlugins:
-  - key: xxxxx
-    baseUrl: http://magda-auth-xxxxx
+  # key should match the `authPluginConfig.key` you set above.
+  # If you didn't specify, it should be `xxx` by default
+  - key: "my-idp"
+    # baseUrl should be http://[alias name of the auth plugin].
+    # If you didn't specify, it's `http://magda-auth-xxx` by default.
+    baseUrl: http://magda-auth-my-idp
 ```
 
 ## About this document
